@@ -10,6 +10,9 @@
 		87158C2A2EF2570200AD2EFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87158C272EF2570200AD2EFD /* MainView.swift */; };
 		87158C2B2EF2570200AD2EFD /* Smile_DetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87158C282EF2570200AD2EFD /* Smile_DetectorApp.swift */; };
 		87158C2C2EF2570200AD2EFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87158C262EF2570200AD2EFD /* Assets.xcassets */; };
+		875C57B22EFB0D66008F736D /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875C57B12EFB0D52008F736D /* ARViewContainer.swift */; };
+		875C57B42EFB0EB5008F736D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875C57B32EFB0EAF008F736D /* Coordinator.swift */; };
+		875C57B62EFB0F11008F736D /* FaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875C57B52EFB0F03008F736D /* FaceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		87158C262EF2570200AD2EFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87158C272EF2570200AD2EFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87158C282EF2570200AD2EFD /* Smile_DetectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smile_DetectorApp.swift; sourceTree = "<group>"; };
+		875C57B12EFB0D52008F736D /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		875C57B32EFB0EAF008F736D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		875C57B52EFB0F03008F736D /* FaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -99,10 +105,11 @@
 		87158C292EF2570200AD2EFD /* Smile Detector */ = {
 			isa = PBXGroup;
 			children = (
+				87158C282EF2570200AD2EFD /* Smile_DetectorApp.swift */,
+				875C57B72EFB0F14008F736D /* Model */,
+				875C57B02EFB0D3C008F736D /* Coordinator */,
 				87158C2D2EF2570B00AD2EFD /* View */,
 				87158C262EF2570200AD2EFD /* Assets.xcassets */,
-				87158C272EF2570200AD2EFD /* MainView.swift */,
-				87158C282EF2570200AD2EFD /* Smile_DetectorApp.swift */,
 			);
 			path = "Smile Detector";
 			sourceTree = "<group>";
@@ -110,8 +117,34 @@
 		87158C2D2EF2570B00AD2EFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87158C272EF2570200AD2EFD /* MainView.swift */,
+				875C57AF2EFB0D33008F736D /* Representable */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		875C57AF2EFB0D33008F736D /* Representable */ = {
+			isa = PBXGroup;
+			children = (
+				875C57B12EFB0D52008F736D /* ARViewContainer.swift */,
+			);
+			path = Representable;
+			sourceTree = "<group>";
+		};
+		875C57B02EFB0D3C008F736D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				875C57B32EFB0EAF008F736D /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		875C57B72EFB0F14008F736D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				875C57B52EFB0F03008F736D /* FaceModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875C57B42EFB0EB5008F736D /* Coordinator.swift in Sources */,
 				87158C2A2EF2570200AD2EFD /* MainView.swift in Sources */,
+				875C57B62EFB0F11008F736D /* FaceModel.swift in Sources */,
 				87158C2B2EF2570200AD2EFD /* Smile_DetectorApp.swift in Sources */,
+				875C57B22EFB0D66008F736D /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
