@@ -8,12 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var faceModel: FaceModel = FaceModel()
+    
     var body: some View {
-        VStack {
-            Text("SMILE DETECTOR")
-                .padding()
+        ZStack {
+            
+            ARViewContainer()
+                .ignoresSafeArea()
+                .environmentObject(faceModel)
+            
+            VStack {
+                Text("SMILE DETECTOR")
+                    .padding()
+                Spacer()
+                
+                if faceModel.isSmiling{
+                    Text("Is smiling :)")
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

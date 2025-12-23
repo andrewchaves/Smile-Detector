@@ -24,13 +24,14 @@ class FaceModel: ObservableObject {
             
             worldVertexArray.append(worldVertex)
         }
+        
+        verifySmiles(faceAnchor: faceAnchor, points: worldVertexArray)
     }
     
     func verifySmiles(faceAnchor: ARFaceAnchor, points: [SIMD3<Float>]) {
         
         for (key, value) in faceAnchor.blendShapes {
-            let blendShapeName = key.rawValue
-            let smileExists = blendShapeName == "mouthSmileRight" || blendShapeName == "mouthSmileLeft"
+            let smileExists = key == .mouthSmileLeft  || key == .mouthSmileRight
             if (value.floatValue > 0.75 && smileExists){
                 isSmiling = true
             } else {
