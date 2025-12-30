@@ -16,12 +16,10 @@ class Coordinator: NSObject, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.first(where: {$0 is ARFaceAnchor}) as? ARFaceAnchor, let frame = session.currentFrame else { return }
-        
-        let vertices = faceAnchor.geometry.vertices
+        guard let faceAnchor = anchors.first(where: {$0 is ARFaceAnchor}) as? ARFaceAnchor else { return }
         
         DispatchQueue.main.async {
-            self.faceModel.updatePoints(vertices: vertices, faceAnchor: faceAnchor)
+            self.faceModel.updatePoints(faceAnchor: faceAnchor)
         }
     }
 }

@@ -14,29 +14,23 @@ class FaceModel: ObservableObject {
     
     @Published var isSmiling: Bool = false
     
-    func updatePoints(vertices: [SIMD3<Float>], faceAnchor: ARFaceAnchor) {
-        
-        var worldVertexArray: [SIMD3<Float>] = []
-        
-        for vertex in vertices {
-            let worldVertex4 = faceAnchor.transform * SIMD4<Float>(vertex.x, vertex.y, vertex.z, 1)
-            let worldVertex = SIMD3<Float>(worldVertex4.x, worldVertex4.y, worldVertex4.z)
-            
-            worldVertexArray.append(worldVertex)
-        }
-        
-        verifySmiles(faceAnchor: faceAnchor, points: worldVertexArray)
+    private let smileOnThreshold: Float = 0.75
+    private let smileOffThreshold: Float = 0.60
+
+    func updatePoints(faceAnchor: ARFaceAnchor) {        
+        verifySmiles(faceAnchor: faceAnchor)
     }
     
-    func verifySmiles(faceAnchor: ARFaceAnchor, points: [SIMD3<Float>]) {
+    private func verifySmiles(faceAnchor: ARFaceAnchor) {
+        let left = faceAnchor.blendShapes[.mouthSmileLeft]?.floatValue ?? 0
+        let right = faceAnchor.blendShapes[.mouthSmileRight]?.floatValue ?? 0
         
-        for (key, value) in faceAnchor.blendShapes {
-            let smileExists = key == .mouthSmileLeft  || key == .mouthSmileRight
-            if (value.floatValue > 0.75 && smileExists){
-                isSmiling = true
-            } else {
-                isSmiling = false
-            }
+        let smileValue = max(left, right)
+        
+        if !isSmiling && smileValue > smileOnThreshold {
+            isSmiling = true
+        } else if isSmiling && smileValue < smileOffThreshold {
+            isSmiling = false
         }
     }
 }
