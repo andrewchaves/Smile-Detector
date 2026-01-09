@@ -26,6 +26,9 @@ struct ContentView: View {
                 if faceModel.isSmiling{
                     Text("Is smiling :)")
                         .transition(.opacity)
+                } else {
+                    Text("Show me a smile!")
+                        .transition(.opacity)
                 }
             }
             .padding()
